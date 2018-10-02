@@ -13,6 +13,7 @@
 	position: fixed;
 	top: 0px;
 	width: 100%;
+	font-family: NexaBold;
 }
 
 .header {
@@ -36,7 +37,9 @@
 .articleImg {
 	float: left;
 	width: 20%;
-	height: 300px;
+	height: 280px;
+	margin-right: 50px;
+	border-radius: 3%;
 }
 
 .smallHeader {
@@ -103,10 +106,14 @@
 	margin-top: 10px;
 }
 
+.btn .download {
+	margin-left: -50px;
+}
+
 .articlePdfContainer {
 	text-align: center;
 	margin: auto;
-	margin-top: 100px;
+	margin-top: 200px;
 	border-radius: 3%;
 	width: 85%;
 	height: 800px;
@@ -115,17 +122,26 @@
 .articleHeaderContainer {
 	text-align: left;
 	text-align: justify;
+	margin-right: 0px;
+	padding-bottom: 25px;
+	border: groove;
+	border-radius: 8px;
+	display: block;
+	width: 65%;
+	position: relative;
+	left: 175px;
+	top: 100px;
 }
 
 .articleHeaderP {
 	font-family: NexaLight;
-	margin-left: 100px;
-	width: 60%;
+	margin-left: 50px;
+	width: 90%;
 }
 
 .articleHeader {
-	margin-top: 100px;
-	margin-left: 100px;
+	margin-top: 50px;
+	margin-left: 50px;
 	font-family: NexaBold;
 	text-align: left;
 	display: inline-block;
@@ -133,13 +149,18 @@
 
 .articleHeaderSmall {
 	margin-top: 10px;
-	margin-left: 100px;
+	margin-left: 50px;
 	font-family: NexaLight;
 	text-align: left;
 }
 
+.downloadArticleButton {
+	margin-left: 100px;
+}
 
-
+#downloadBtn {
+	margin-left: -50px;
+}
 
 
 
