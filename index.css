@@ -37,7 +37,9 @@
 .articleImg {
 	float: left;
 	width: 20%;
-	height: 280px;
+	display: block;
+	height: 285px;
+	padding-bottom: 25px;
 	margin-right: 50px;
 	border-radius: 3%;
 }
