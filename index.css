@@ -32,6 +32,9 @@
 	margin-left: 125px;
 	margin-top: 100px;
 	font-family: NexaLight;
+	text-align: center;
+	text-align: justify;
+	width: 1200px;
 }
 
 .articleImg {
@@ -176,7 +179,7 @@
 	width: 30%;
 	border-radius: 1%;
 	margin-left: 100px;
-	margin-top: -70px;
+	margin-top: -370px;
 }
 
 #downloadBtn {
