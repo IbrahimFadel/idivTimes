@@ -1,6 +1,17 @@
 const express = require('express');
 const app = express();
 const PORT = process.env.PORT || 8000;
+const { body,validationResult } = require('express-validator/check');
+const { sanitizeBody } = require('express-validator/filter');
+
+var bodyParser = require('body-parser')
+app.use( bodyParser.json() );       // to support JSON-encoded bodies
+app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
+  extended: true
+})); 
+
+app.use(express.json());       // to support JSON-encoded bodies
+app.use(express.urlencoded());
 
 var phpExpress = require('php-express')({
   binPath: 'php'
@@ -42,8 +53,9 @@ app.get('/action_page.php', (req, res, next) => {
 	res.sendFile(__dirname + '/action_page.php');
 });
 
-app.post('/contact.html',function(req,res){
-   var username = req.body.username;
+app.post('/action_page.php',function(req,res){
+   var username = req.body.name;
+   var email = req.body.email;
    var htmlData = 'Hello:' + username;
    res.send(htmlData);
    console.log(htmlData);
