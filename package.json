@@ -1,0 +1,20 @@
+{
+  "name": "idivtimes",
+  "version": "1.0.0",
+  "description": "Website to display the idiv times articles",
+  "main": "server.js",
+  "scripts": {
+    "test": "start",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IbrahimFadel/idivTimes.git"
+  },
+  "author": "IbrahimFadel",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/IbrahimFadel/idivTimes/issues"
+  },
+  "homepage": "https://github.com/IbrahimFadel/idivTimes#readme"
+}
