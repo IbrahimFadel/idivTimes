@@ -16,5 +16,9 @@
   "bugs": {
     "url": "https://github.com/IbrahimFadel/idivTimes/issues"
   },
-  "homepage": "https://github.com/IbrahimFadel/idivTimes#readme"
+  "homepage": "https://github.com/IbrahimFadel/idivTimes#readme",
+  "dependencies": {
+    "express": "^4.16.3",
+    "php-express": "0.0.3"
+  }
 }
