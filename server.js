@@ -6,6 +6,9 @@ const { sanitizeBody } = require('express-validator/filter');
 const php = require('php-express');
 const BSON = require('bson');
 const Long = BSON.Long;
+const fs = require('fs');
+
+var dataArray = new Array();
 
 var bodyParser = require('body-parser')
 app.use( bodyParser.json() );       // to support JSON-encoded bodies
@@ -103,6 +106,12 @@ app.get('/src/articles/pdf/article2.pdf', (req, res, next) => {
 }); 
 
 
+
+fs.writeFileSync('data/user.json', dataArray, finished);
+function finished(err) {
+	console.log('error');
+} 
+
 //Pushes data from form on contact.html to data.json
 // SENSITIVE INFO PLEASE STAY OUT
 //Trying to encrypr to binary with bson data format
@@ -113,20 +122,11 @@ app.post('/action_page.php',function(req,res){
    var username = req.body.name;
    var password = req.body.password;
 
-	var fs = require('fs');
-	let userInfo = {
-		email: email,
-		username: username,
-		password: password
-	};
-
 	function text2Binary(data) {
 	    return data.split('').map(function (char) {
 	        return char.charCodeAt(0).toString(2);
 	    }).join(' ');
 	}
-
-	var dataArray = new Array();
 
 	var test = text2Binary(email);
 	dataArray.push(test);
@@ -139,14 +139,18 @@ app.post('/action_page.php',function(req,res){
 	test = text2Binary(password);
 	dataArray.push(test);
 	console.log(dataArray);
-	test = JSON.stringify(test);
+	test = JSON.stringify(test, null, 2);
 
-	fs.writeFileSync('data.json', dataArray, finished);
-	function finished(err) {
-		console.log('error');
-	} 
+	fs.writeFile('data.json', dataArray, finished);
+
+	function finis(err) {
+		console.log("All Good");
+	}
+
+
 
 	console.log(dataArray);
+
 
 
 	//let objectData = JSON.parse(test);
