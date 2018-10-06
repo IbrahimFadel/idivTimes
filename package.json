@@ -19,6 +19,7 @@
   "homepage": "https://github.com/IbrahimFadel/idivTimes#readme",
   "dependencies": {
     "body-parser": "^1.18.3",
+    "bson": "^3.0.2",
     "express": "^4.16.3",
     "express-validator": "^5.3.0",
     "php-express": "0.0.3"

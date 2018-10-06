@@ -4,6 +4,8 @@ const PORT = process.env.PORT || 8000;
 const { body,validationResult } = require('express-validator/check');
 const { sanitizeBody } = require('express-validator/filter');
 const php = require('php-express');
+const BSON = require('bson');
+const Long = BSON.Long;
 
 var bodyParser = require('body-parser')
 app.use( bodyParser.json() );       // to support JSON-encoded bodies
@@ -103,6 +105,7 @@ app.get('/src/articles/pdf/article2.pdf', (req, res, next) => {
 
 //Pushes data from form on contact.html to data.json
 // SENSITIVE INFO PLEASE STAY OUT
+//Trying to encrypr to binary with bson data format
 app.post('/action_page.php',function(req,res){
 	'use strict'
 
@@ -117,11 +120,49 @@ app.post('/action_page.php',function(req,res){
 		password: password
 	};
 
-	let jsonData = JSON.stringify(userInfo);
-	fs.writeFileSync('data.json', jsonData, finished);
-		function finished(err) {
-			console.log('success');
-		} 
+	function text2Binary(data) {
+	    return data.split('').map(function (char) {
+	        return char.charCodeAt(0).toString(2);
+	    }).join(' ');
+	}
+
+	var dataArray = new Array();
+
+	var test = text2Binary(email);
+	dataArray.push(test);
+	console.log(dataArray);
+	test = JSON.stringify(test);
+	test = text2Binary(username);
+	dataArray.push(test);
+	console.log(dataArray);
+	test = JSON.stringify(test);
+	test = text2Binary(password);
+	dataArray.push(test);
+	console.log(dataArray);
+	test = JSON.stringify(test);
+
+	fs.writeFileSync('data.json', dataArray, finished);
+	function finished(err) {
+		console.log('error');
+	} 
+
+	console.log(dataArray);
+
+
+	//let objectData = JSON.parse(test);
+
+	//objectData[1].push(test)
+
+
+	//Type Long
+	/*const doc = { long: Long.fromNumber(100) };
+	//serialize data
+	const data = BSON.serialize(doc);
+	console.log('data:', data);
+	//De-serialize
+	const doc_2 = BSON.deserialize(data);
+	console.log('doc_2:', doc_2);
+	console.log(newBSON.serialize('hello'));*/
 
 
 	res.send('Thanks for Signing up! We hope you enjoy the artilces!');
