@@ -7,7 +7,9 @@
 </head>
 <body>
 
-<?php echo '<p>Hi</p>'; ?>
+<?php
+ echo "Hi"; 
+ ?>
 
 
 Welcome <?php echo $_POST["name"]; ?><br>

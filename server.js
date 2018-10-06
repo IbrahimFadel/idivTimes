@@ -18,6 +18,8 @@ var phpExpress = require('php-express')({
   binPath: 'php'
 });
 
+//There must be a more effeicient way I just havent figured out lol:
+
 app.get('/', (req, res, next) => {
 	res.sendFile(__dirname + '/index.html');
 });
@@ -98,13 +100,38 @@ app.get('/src/articles/pdf/article2.pdf', (req, res, next) => {
 	res.sendFile(__dirname + '/src/articles/pdf/article2.pdf');
 }); 
 
+
+//Pushes data from form on contact.html to data.json
+// SENSITIVE INFO PLEASE STAY OUT
 app.post('/action_page.php',function(req,res){
-   var username = req.body.name;
+	'use strict'
+
    var email = req.body.email;
-   var htmlData = 'Hello:' + username;
-   res.send(htmlData);
-   console.log(htmlData);
+   var username = req.body.name;
+   var password = req.body.password;
+
+	var fs = require('fs');
+	let userInfo = {
+		email: email,
+		username: username,
+		password: password
+	};
+
+	let jsonData = JSON.stringify(userInfo);
+	fs.writeFileSync('data.json', jsonData, finished);
+		function finished(err) {
+			console.log('success');
+		} 
+
+
+	res.send('Thanks for Signing up! We hope you enjoy the artilces!');
 });
+
+/*
+*Post data to file use data to send emails,
+*This file will just say thanks for signing up
+*
+*/
 
 app.listen(PORT, () => {
 	console.log("Server listening on port: " + PORT + "");
