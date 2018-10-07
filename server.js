@@ -4,11 +4,14 @@ const PORT = process.env.PORT || 8000;
 const { body,validationResult } = require('express-validator/check');
 const { sanitizeBody } = require('express-validator/filter');
 const php = require('php-express');
-const BSON = require('bson');
+var BSON = require('bson')
 const Long = BSON.Long;
+var bson = new BSON();
 const fs = require('fs');
 
 var dataArray = new Array();
+var dataPoint;
+var serializedData;
 
 var bodyParser = require('body-parser')
 app.use( bodyParser.json() );       // to support JSON-encoded bodies
@@ -61,6 +64,10 @@ app.get('/action_page.php', (req, res, next) => {
 	res.sendFile(__dirname + '/action_page.php');
 });
 
+app.get('/login.html', (req, res, next) => {
+	res.sendFile(__dirname + '/login.html');
+});
+
 app.get('/src/img/no-image.png', (req, res, next) => {
 	res.sendFile(__dirname + '/src/img/no-image.png');
 });
@@ -107,69 +114,41 @@ app.get('/src/articles/pdf/article2.pdf', (req, res, next) => {
 
 
 
-fs.writeFileSync('data/user.json', dataArray, finished);
+fs.writeFileSync('data.json', dataArray, finished);
 function finished(err) {
 	console.log('error');
-} 
+}
 
 //Pushes data from form on contact.html to data.json
 // SENSITIVE INFO PLEASE STAY OUT
 //Trying to encrypr to binary with bson data format
 app.post('/action_page.php',function(req,res){
 	'use strict'
-
    var email = req.body.email;
    var username = req.body.name;
    var password = req.body.password;
-
-	function text2Binary(data) {
-	    return data.split('').map(function (char) {
-	        return char.charCodeAt(0).toString(2);
-	    }).join(' ');
+	
+	for(let i = 0; i < 3; i++) {
+		if(i === 0) {
+			dataPoint = {string: email}
+			serializedData = bson.serialize(dataPoint);
+			dataArray.push(serializedData);
+		} else if(i === 1) {
+			dataPoint = {string: username}
+			serializedData = bson.serialize(dataPoint);
+			dataArray.push(serializedData);
+		} else if(i === 2) {
+			dataPoint = {string: password}
+			serializedData = bson.serialize(dataPoint);
+			dataArray.push(serializedData);
+		}
 	}
-
-	var test = text2Binary(email);
-	dataArray.push(test);
-	console.log(dataArray);
-	test = JSON.stringify(test);
-	test = text2Binary(username);
-	dataArray.push(test);
-	console.log(dataArray);
-	test = JSON.stringify(test);
-	test = text2Binary(password);
-	dataArray.push(test);
-	console.log(dataArray);
-	test = JSON.stringify(test, null, 2);
 
 	fs.writeFile('data.json', dataArray, finished);
-
-	function finis(err) {
-		console.log("All Good");
-	}
-
-
-
-	console.log(dataArray);
-
-
-
-	//let objectData = JSON.parse(test);
-
-	//objectData[1].push(test)
-
-
-	//Type Long
-	/*const doc = { long: Long.fromNumber(100) };
-	//serialize data
-	const data = BSON.serialize(doc);
-	console.log('data:', data);
 	//De-serialize
-	const doc_2 = BSON.deserialize(data);
-	console.log('doc_2:', doc_2);
-	console.log(newBSON.serialize('hello'));*/
-
-
-	res.send('Thanks for Signing up! We hope you enjoy the artilces!');
+	//var doc_2 = bson.deserialize(data);
+	//console.log('doc_2:', doc_2);
+	res.send('<nav class="navbar navbar-expand-lg navbar-light bg-primary"> <a class="navbar-brand text-light" href="/index.html">The Idiv Times</a> <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button> <div class="collapse navbar-collapse" id="navbarSupportedContent"> <ul class="navbar-nav mr-auto"> <li class="nav-item active"> <a class="nav-link text-light" href="/catalog.html">Catalog <span class="sr-only">(current)</span></a> </li><li class="nav-item"> <a class="nav-link text-light" href="/staff.html">Staff</a> </li><li class="nav-item"> <a class="nav-link text-light" href="/contact.html">Contact</a> </li></ul> </div></nav>');
 });
 
 /*

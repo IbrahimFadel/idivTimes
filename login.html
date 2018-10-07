@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Idiv Times - Staff</title>
+	<title>Idiv Times - Login/Signup</title>
 
 	<link href="css/bootstrap.min.css" rel="stylesheet">
 	<link href="./index.css" rel="stylesheet">
 </head>
 <body>
-
 <nav class="navbar navbar-expand-lg navbar-light bg-primary">
   <a class="navbar-brand text-light" href="/index.html">The Idiv Times</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -25,73 +24,47 @@
       <li class="nav-item">
         <a class="nav-link text-light" href="/contact.html">Contact</a>
       </li>
-      <li class="nav-item">
+        <li class="nav-item">
         <a class="nav-link text-light" href="/login.html">Log in or Sign Up</a>
       </li>
     </ul>
   </div>
 </nav>
 
-<h1 class="header">Our Staff</h1>
 
-<div class="profileParentContainer">
-	<div class="profileChildContainer">
-		<h5>Nima Bidari</h5>
-		<img src="src/img/no-profile.png" class="profilePicture">
-		<p>Head of Idiv Times</p>
-	</div>
+<div class="contactFormContainer" style="margin: 0 auto; margin-top: 100px;">
 
-	<div class="profileChildContainer">
-		<h5>Ibrahim Fadel</h5>
-		<img src="src/img/no-profile.png" class="profilePicture">
-		<p>Head of Technology</p>
-	</div>
+	<h5 class="smallHeader">Login Here:</h5>
+	<p class="smallHeader" style="margin-top: -20px;">
+		<a href="/signup.html">Or Sign Up Here</a>
+	</p>
+	<p style="text-align: center;">
+		<small id="emailHelp" class="form-text text-muted">We'll never share any of your information with anybody.</small>	
+	</p>
 
-	<div class="profileChildContainer">
-		<h5>William Trojniak</h5>
-		<img src="src/img/no-profile.png" class="profilePicture">
-		<p>Web Developer</p>
-	</div>
+	<form action="action_page1.php" method="post">
 
-	<div class="profileChildContainer">
-		<h5>Apostolos Zezos</h5>
-		<img src="src/img/no-profile.png" class="profilePicture">
-		<p>Editor</p>
-	</div>
-
-	<div class="profileChildContainer">
-		<h5>Ranger Leon</h5>
-		<img src="src/img/no-profile.png" class="profilePicture">
-		<p>Editor</p>
-	</div>
-
-	<div class="profileChildContainer">
-		<h5>Robbie Evans</h5>
-		<img src="src/img/no-profile.png" class="profilePicture">
-		<p>Editor</p>
-	</div>
-
-	<div class="profileChildContainer">
-		<h5>Justin Lee</h5>
-		<img src="src/img/no-profile.png" class="profilePicture">
-		<p>Writer</p>
-	</div>
-
-	<div class="profileChildContainer">
-		<h5>Francesco Rende</h5>
-		<img src="src/img/no-profile.png" class="profilePicture">
-		<p>Writer</p>
-	</div>
-
-	<div class="profileChildContainer">
-		<h5>Jordan Van Slingerland</h5>
-		<img src="src/img/no-profile.png" class="profilePicture">
-		<p>Writer</p>
-	</div>
-
+	  <div class="form-group">
+	    <label for="exampleInputEmail1">Email address</label>
+	    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email" placeholder="Enter email">
+	    
+	  </div>
+	  <div class="form-group">
+	    <label for="exampleInputPassword1">Username</label>
+	    <input type="text" class="form-control" name="name" placeholder="Username">
+	  </div>
+	  <div class="form-group">
+	    <label for="exampleInputPassword1">Password</label>
+	    <input type="password" class="form-control" id="exampleInputPassword1" name="password" placeholder="Password">
+	  </div>
+	  	<button type="submit" value="Submit" class="btn btn-primary">Submit</button>
+	</form>
 
 </div>
-	
+
+
+
+
 <div class="bottomBanner">
 
 	<h5 class="bannerHeader" style="padding-top: 50px;">The Idiv Times</h5>
@@ -105,6 +78,8 @@
 	<p class="bannerP">Website by Ibrahim Fadel</p>
 
 </div>
+
+
 
 </body>
 </html>
