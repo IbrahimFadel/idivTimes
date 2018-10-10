@@ -12,6 +12,11 @@ const fs = require('fs');
 var dataArray = new Array();
 var dataPoint;
 var serializedData;
+var email = "";
+var username = "";
+var password = "";
+
+var jsonLoginData = new Array();
 
 var bodyParser = require('body-parser')
 app.use( bodyParser.json() );       // to support JSON-encoded bodies
@@ -112,11 +117,15 @@ app.get('/src/articles/pdf/article2.pdf', (req, res, next) => {
 	res.sendFile(__dirname + '/src/articles/pdf/article2.pdf');
 }); 
 
+app.get('/src/img/idivTimesLogo.png', (req, res, next) => {
+	res.sendFile(__dirname + '/src/img/idivTimesLogo.png');
+}); 
 
 
-fs.writeFileSync('data.json', dataArray, finished);
+//create the initial data.json file using array: jsonLoginData
+fs.writeFileSync('data.json', jsonLoginData, finished);
 function finished(err) {
-	console.log('error');
+	console.log('success');
 }
 
 //Pushes data from form on contact.html to data.json
@@ -124,38 +133,58 @@ function finished(err) {
 //Trying to encrypr to binary with bson data format
 app.post('/action_page.php',function(req,res){
 	'use strict'
-   var email = req.body.email;
-   var username = req.body.name;
-   var password = req.body.password;
+   email = req.body.email;
+   username = req.body.name;
+   password = req.body.password;
 	
 	for(let i = 0; i < 3; i++) {
 		if(i === 0) {
 			dataPoint = {string: email}
+			//console.log(dataPoint);
 			serializedData = bson.serialize(dataPoint);
-			dataArray.push(serializedData);
+			jsonLoginData.push(serializedData);
+			bson.deserialize(serializedData)
 		} else if(i === 1) {
 			dataPoint = {string: username}
 			serializedData = bson.serialize(dataPoint);
-			dataArray.push(serializedData);
+			jsonLoginData.push(serializedData);
+			bson.deserialize(serializedData)
 		} else if(i === 2) {
 			dataPoint = {string: password}
 			serializedData = bson.serialize(dataPoint);
-			dataArray.push(serializedData);
+			jsonLoginData.push(serializedData);
+			bson.deserialize(serializedData)
 		}
 	}
 
-	fs.writeFile('data.json', dataArray, finished);
+	fs.writeFile('data.json', jsonLoginData, finished);
+	//console.log(jsonLoginData);
+
 	//De-serialize
 	//var doc_2 = bson.deserialize(data);
 	//console.log('doc_2:', doc_2);
-	res.send('<nav class="navbar navbar-expand-lg navbar-light bg-primary"> <a class="navbar-brand text-light" href="/index.html">The Idiv Times</a> <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button> <div class="collapse navbar-collapse" id="navbarSupportedContent"> <ul class="navbar-nav mr-auto"> <li class="nav-item active"> <a class="nav-link text-light" href="/catalog.html">Catalog <span class="sr-only">(current)</span></a> </li><li class="nav-item"> <a class="nav-link text-light" href="/staff.html">Staff</a> </li><li class="nav-item"> <a class="nav-link text-light" href="/contact.html">Contact</a> </li></ul> </div></nav>');
+	//res.send('<nav class="navbar navbar-expand-lg navbar-light bg-primary"> <a class="navbar-brand text-light" href="/index.html">The Idiv Times</a> <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button> <div class="collapse navbar-collapse" id="navbarSupportedContent"> <ul class="navbar-nav mr-auto"> <li class="nav-item active"> <a class="nav-link text-light" href="/catalog.html">Catalog <span class="sr-only">(current)</span></a> </li><li class="nav-item"> <a class="nav-link text-light" href="/staff.html">Staff</a> </li><li class="nav-item"> <a class="nav-link text-light" href="/contact.html">Contact</a> </li></ul> </div></nav>');
+	res.sendFile(__dirname + '/signupResponse.html');
 });
 
-/*
-*Post data to file use data to send emails,
-*This file will just say thanks for signing up
-*
-*/
+app.post('/action_page1.php', function(req, res){
+	'use strict'
+	//console.log(bson.deserialize(jsonLoginData[0]));
+	var myEmail = email;
+
+
+	//console.log(email);
+	if(email === bson.deserialize(jsonLoginData[0])) {
+		console.log(email);
+		console.log('Go ahead!');
+	} else {
+		console.log("errrrrorrrrr");
+	}
+
+	res.sendFile(__dirname + '/index.html');
+
+});
+
 
 app.listen(PORT, () => {
 	console.log("Server listening on port: " + PORT + "");
