@@ -1,0 +1,192 @@
+@font-face {
+	font-family: NexaBold;
+	src: url(./src/fonts/NexaBold.otf);
+}
+
+@font-face {
+	font-family: NexaLight;
+	src: url(./src/fonts/NexaLight.otf);
+}
+
+.navbar {
+	position: fixed;
+	top: 0px;
+	width: 100%;
+	font-family: NexaBold;
+}
+
+.header {
+	font-family: NexaBold;
+	margin-top: 100px;
+	text-align: center;
+}
+
+.articleFrontPageText {
+	margin-top: 150px; 
+	margin-right: 250px;
+	font-family: NexaLight;
+}
+
+.articleP {
+	margin-left: 125px;
+	margin-top: 100px;
+	font-family: NexaLight;
+	text-align: center;
+	text-align: justify;
+	width: 1200px;
+}
+
+.articleImg {
+	float: left;
+	width: 20%;
+	display: block;
+	height: 285px;
+	padding-bottom: 25px;
+	margin-right: 50px;
+	border-radius: 3%;
+}
+
+.smallHeader {
+	font-family: NexaLight;
+	text-align: center;
+	padding-top: 30px;
+}
+
+.profilePicture {
+	border-radius: 50%;
+	height: 70%;
+	width: 70%;
+}
+
+.profileChildContainer {
+	display: inline-block;
+	font-family: NexaLight;
+	margin-top: 50px;
+	margin-left: 50px;
+}
+
+.profileParentContainer {
+	text-align: center;
+	background-color: #eaebed;
+	border-radius: 3%;
+	width: 90%;
+	margin: auto;
+	margin-top: 75px;
+}
+
+.emailLink {
+	color: #0057ED;
+	font-size: 50px;
+	font-family: NexaLight;
+}
+
+.bottomBanner {
+	margin-bottom: 0px;
+	margin-top: 100px;
+	height: 100%;
+	width: 100%;
+	background-color: #eaebed;
+}
+
+.bannerHeader {
+	font-family: NexaLight;
+	text-align: center;
+}
+
+.bannerP {
+	font-family: NexaLight;
+	text-align: center;
+	padding-top: 25px;
+}
+
+.bannerImg {
+	width: 50px;
+	height: 50px;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.btn {
+	margin-top: 10px;
+}
+
+.btn .download {
+	margin-left: -50px;
+}
+
+.articlePdfContainer {
+	text-align: center;
+	margin: auto;
+	margin-top: 200px;
+	border-radius: 3%;
+	width: 85%;
+	height: 800px;
+}
+
+.articleHeaderContainer {
+	text-align: left;
+	text-align: justify;
+	margin-right: 0px;
+	padding-bottom: 25px;
+	border: groove;
+	border-radius: 8px;
+	display: block;
+	width: 65%;
+	position: relative;
+	left: 175px;
+	top: 100px;
+}
+
+.articleHeaderP {
+	font-family: NexaLight;
+	margin-left: 50px;
+	width: 90%;
+}
+
+.articleHeader {
+	margin-top: 50px;
+	margin-left: 50px;
+	font-family: NexaBold;
+	text-align: left;
+	display: inline-block;
+}
+
+.articleHeaderSmall {
+	margin-top: 10px;
+	margin-left: 50px;
+	font-family: NexaLight;
+	text-align: left;
+}
+
+.downloadArticleButton {
+	margin-left: 100px;
+}
+
+.contactText {
+	background-color: #eaebed;
+	text-align: center;
+    border-radius: 3%;
+    width: 300px;
+    margin-left: auto;
+    margin-right: 300px;
+    margin-top: 150px;
+}
+
+.contactFormContainer {
+	background-color: #eaebed;
+	width: 30%;
+	border-radius: 1%;
+	margin-left: 100px;
+	margin-top: 100px;
+}
+
+#downloadBtn {
+	margin-left: -50px;
+}
+
+
+
+
+
+
