@@ -15,8 +15,17 @@ var serializedData;
 var email = "";
 var username = "";
 var password = "";
-var loginData = {"email": "","username": "","password": ""};
-console.log(loginData);
+var loginData = {"email": "","username": "","password": "", "id": null};
+var userId = -1;
+
+var newEmail;
+var myEmail;
+var newUsername;
+var newPassword;
+
+var jsonData;
+var parsedJsonData;
+
 
 var jsonLoginData = new Array();
 
@@ -136,17 +145,19 @@ function finished(err) {
 app.post('/action_page.php',function(req,res){
 	'use strict'
    email = req.body.email;
-   username = req.body.name;
+   username = req.body.username;
    password = req.body.password;
+   userId++;
 	
 	loginData = {
 		email: email,
 		username: username,
-		password: bson.serialize({string: password})
+		password: bson.serialize({string: password}),
+		id: userId
 	};
 
 	dataArray.push(loginData);
-	console.log(dataArray);
+	//console.log(dataArray);
 
 	fs.writeFile('data.json', JSON.stringify(dataArray, null, 4), finished);
 	
@@ -154,20 +165,24 @@ app.post('/action_page.php',function(req,res){
 });
 
 app.post('/action_page1.php', function(req, res){
-	'use strict'
-	//console.log(bson.deserialize(jsonLoginData[0]));
-	var myEmail = email;
 
+	email = req.body.email;
+	username = req.body.username;
+	password = req.body.password;
 
-	//console.log(email);
-	if(email === bson.deserialize(jsonLoginData[0])) {
-		console.log(email);
-		console.log('Go ahead!');
-	} else {
-		console.log("errrrrorrrrr");
+	jsonData = fs.readFileSync('data.json', 'utf8');
+	parsedJsonData = JSON.parse(jsonData);
+
+	for(let i = 0; i < parsedJsonData.length; i++) {
+		if(parsedJsonData[i].email === email && parsedJsonData[i].username === username) {
+			console.log("LOGGED IN!");
+			res.sendFile(__dirname + '/index.html');
+		} else {
+			console.log("Failed!");
+			res.sendFile(__dirname + '/login.html');
+		}
 	}
 
-	res.sendFile(__dirname + '/index.html');
 
 });
 
