@@ -78,6 +78,7 @@
 	color: #0057ED;
 	font-size: 50px;
 	font-family: NexaLight;
+	margin-top: -100px;
 }
 
 .bottomBanner {
@@ -168,17 +169,21 @@
 	text-align: center;
     border-radius: 3%;
     width: 300px;
-    margin-left: auto;
-    margin-right: 300px;
-    margin-top: 150px;
+    margin-left: 60%;
+    margin-right: 100px;
+    margin-top: 75px;
 }
 
 .contactFormContainer {
 	background-color: #eaebed;
 	width: 30%;
 	border-radius: 1%;
-	margin-left: 100px;
-	margin-top: 100px;
+	margin-left: 15%;
+	margin-top: -835px;
+}
+
+.form-group {
+
 }
 
 #downloadBtn {
