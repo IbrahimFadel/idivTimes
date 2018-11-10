@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Idiv Times test - Contact</title>
+
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<link href="css/index.css" rel="stylesheet">
+</head>
+<body>
+
+
+<nav class="navbar navbar-expand-lg navbar-light bg-primary">
+  <a class="navbar-brand text-light" href="/index.html">The Idiv Times</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link text-light" href="/catalog.html">Catalog <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-light" href="/staff.html">Staff</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-light" href="/contact.html">Contact</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-light" href="/login.html">Log in</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+
+<h1 class="header">Contact us or let us contact you!</h1>
+
+<div class="contactContainer">
+	<div class="contactLinks">
+		<a href="mailto:ibrahim.fadel@ucc.on.ca" class="emailLink">Email Us!</a>
+	</div>
+
+	<div class="contactLinks">
+		<a href="https://uccidivtimes.slack.com" class="emailLink" target="_blank">Slack</a>
+	</div>
+
+	<div class="contactLinks" style="width: 25%;">
+		<a href="https://ucc.managebac.com/student/groups" class="emailLink" target="_blank">Join the Idiv Times</a>
+	</div>
+
+
+
+	<div class="contactForm">
+		<h5 class="smallHeader">Sign up to be emailed when we publish!</h5>
+		<p style="text-align: center;">
+		<small id="emailHelp" class="form-text text-muted">We'll never share any of your information with anybody.</small>	
+		</p>
+
+
+		<form style="width: 90%;">
+
+		<label for="exampleInputEmail1" style="margin-left: 15px;">Email address</label>
+		<input type="email" class="form-control" id="email_signUp" aria-describedby="emailHelp" name="email" style="margin-left: 15px;" placeholder="Enter email">
+
+
+		<label for="exampleInputPassword1" style="margin-left: 15px;">Password</label>
+		<input type="password" class="form-control" name="password" placeholder="Password" style="margin-left: 15px;" id="password_signUp">
+
+		<button type="button" value="Sign Up!" class="btn btn-primary" style="margin-left: 15px; margin-bottom: 15px;" onclick="signUp()">Submit</button>
+		</form>
+	</div>
+</div>
+
+
+
+
+
+
+	
+
+<div class="bottomBanner">
+
+	<h5 class="bannerHeader" style="padding-top: 50px;">The Idiv Times</h5>
+	<h5 class="bannerHeader">A UCC Intermediate Division Publication</h5>
+	<br>
+
+	<a href="https://github.com/IbrahimFadel" target="_blank">
+		<img src="src/img/github.png" class="bannerImg">
+	</a>
+
+	<p class="bannerP">Website by Ibrahim Fadel</p>
+
+</div>
+
+<script src="https://www.gstatic.com/firebasejs/5.5.8/firebase.js"></script>
+<script>
+	// Initialize Firebase
+	var config = {
+		apiKey: "AIzaSyBkbidNavhMbjzAkd63OXEEyweWgHCviOE",
+		authDomain: "idivtimes.firebaseapp.com",
+		databaseURL: "https://idivtimes.firebaseio.com",
+		projectId: "idivtimes",
+		storageBucket: "idivtimes.appspot.com",
+		messagingSenderId: "937111215784"
+	};
+	firebase.initializeApp(config);
+</script>
+<script src="firebase.js"></script>
+
+</body>
+</html>

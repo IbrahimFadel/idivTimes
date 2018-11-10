@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Idiv Times - Login/Signup</title>
+
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<link href="css/index.css" rel="stylesheet">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-primary">
+  <a class="navbar-brand text-light" href="/index.html">The Idiv Times</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link text-light" href="/catalog.html">Catalog <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-light" href="/staff.html">Staff</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-light" href="/contact.html">Contact</a>
+      </li>
+        <li class="nav-item">
+        <a class="nav-link text-light" href="/login.html">Log in</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+
+<div class="contactFormContainer" style="margin: 0 auto; margin-top: 100px;">
+	<div id="loginDiv">
+		<h5 class="smallHeader">Login Here:</h5>
+		<p class="smallHeader" style="margin-top: -20px;">
+			<a href="/contact.html">Or Sign Up Here</a>
+		</p>
+		<p style="text-align: center;">
+			<small id="emailHelp" class="form-text text-muted">We'll never share any of your information with anybody.</small>	
+		</p>
+		<form>
+		  <div class="form-group">
+		    <label for="exampleInputEmail1">Email address</label>
+		    <input type="email" class="form-control" id="email_logIn" aria-describedby="emailHelp" name="email" placeholder="Enter email">
+		    
+		  </div>
+		  <div class="form-group">
+		    <label for="exampleInputPassword1">Password</label>
+		    <input type="password" class="form-control" id="password_logIn" name="password" placeholder="Password">
+		  </div>
+		  	<button type="button" value="Log In" class="btn btn-primary" onclick="login()">Submit</button>
+		</form>
+	</div>
+
+	<div id="logoutDiv">
+		<h3 class="smallHeader">You Are Logged in!</h3>
+	  	<button type="button" class="btn btn-primary" onclick="logout()" style="position: absolute; left: 50%">Log Out</button>
+	</div>
+	
+
+</div>
+
+
+
+
+<div class="bottomBanner">
+
+	<h5 class="bannerHeader" style="padding-top: 50px;">The Idiv Times</h5>
+	<h5 class="bannerHeader">A UCC Intermediate Division Publication</h5>
+	<br>
+
+	<a href="https://github.com/IbrahimFadel" target="_blank">
+		<img src="src/img/github.png" class="bannerImg">
+	</a>
+
+	<p class="bannerP">Website by Ibrahim Fadel</p>
+
+</div>
+
+<script src="https://www.gstatic.com/firebasejs/5.5.8/firebase.js"></script>
+<script>
+	// Initialize Firebase
+	var config = {
+		apiKey: "AIzaSyBkbidNavhMbjzAkd63OXEEyweWgHCviOE",
+		authDomain: "idivtimes.firebaseapp.com",
+		databaseURL: "https://idivtimes.firebaseio.com",
+		projectId: "idivtimes",
+		storageBucket: "idivtimes.appspot.com",
+		messagingSenderId: "937111215784"
+	};
+	firebase.initializeApp(config);
+</script>
+<script src="firebase.js"></script>
+</body>
+</html>
