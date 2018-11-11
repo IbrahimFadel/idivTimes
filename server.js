@@ -1,4 +1,4 @@
-	const express = require('express');
+const express = require('express');
 const app = express();
 const PORT = process.env.PORT || 8000;
 
@@ -72,6 +72,10 @@ app.get('/img/Article3.png', (req, res, next) => {
 	res.sendFile(__dirname + '/img/Article3.png');
 });
 
+app.get('/img/github.png', (req, res, next) => {
+	res.sendFile(__dirname + '/img/github.png');
+});
+
 ////////////////////////////////////////////////
 
 app.get('/img/article1.pdf', (req, res, next) => {
@@ -84,6 +88,14 @@ app.get('/img/article2.pdf', (req, res, next) => {
 
 app.get('/img/article3.pdf', (req, res, next) => {
 	res.sendFile(__dirname + '/img/article3.pdf');
+});
+
+app.get('/fonts/NexaBold.otf', (req, res, next) => {
+	res.sendFile(__dirname + '/fonts/NexaBold.otf');
+});
+
+app.get('/fonts/NexaLight.otf', (req, res, next) => {
+	res.sendFile(__dirname + '/fonts/NexaLight.otf');
 });
 
 ///////////////////////////////////////////////

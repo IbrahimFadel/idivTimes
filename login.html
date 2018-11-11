@@ -51,13 +51,16 @@
 		    <label for="exampleInputPassword1">Password</label>
 		    <input type="password" class="form-control" id="password_logIn" name="password" placeholder="Password">
 		  </div>
-		  	<button type="button" value="Log In" class="btn btn-primary" onclick="login()">Submit</button>
+		  	<button type="button" value="Log In" class="btn btn-primary" onclick="login()">Log in</button>
 		</form>
+
+		<button type="button" class="btn btn-primary" style="margin-top: 50px;" onclick="loginGoogle()">Login with google</button>
+		
 	</div>
 
 	<div id="logoutDiv">
 		<h3 class="smallHeader">You Are Logged in!</h3>
-	  	<button type="button" class="btn btn-primary" onclick="logout()" style="position: absolute; left: 50%">Log Out</button>
+	  	<button type="button" class="btn btn-primary" id="logoutBtn" onclick="logout()">Log Out</button>
 	</div>
 	
 
@@ -73,7 +76,7 @@
 	<br>
 
 	<a href="https://github.com/IbrahimFadel" target="_blank">
-		<img src="src/img/github.png" class="bannerImg">
+		<img src="/img/github.png" class="bannerImg">
 	</a>
 
 	<p class="bannerP">Website by Ibrahim Fadel</p>
