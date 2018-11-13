@@ -1,6 +1,8 @@
 const express = require('express');
 const app = express();
 const PORT = process.env.PORT || 8000;
+const swal = require('sweetalert2');
+//import swal from 'sweetalert2';
 
 app.get('/', (req, res, next) => {
 	res.sendFile(__dirname + '/index.html');
@@ -24,6 +26,7 @@ app.get('/contact.html', (req, res, next) => {
 
 app.get('/firebase.js', (req, res, next) => {
 	res.sendFile(__dirname + '/firebase.js');
+	const swal = require('sweetalert2');
 })
 
 app.get('/login.html', (req, res, next) => {
@@ -74,6 +77,10 @@ app.get('/img/Article3.png', (req, res, next) => {
 
 app.get('/img/github.png', (req, res, next) => {
 	res.sendFile(__dirname + '/img/github.png');
+});
+
+app.get('/img/google-plus.png', (req, res, next) => {
+	res.sendFile(__dirname + '/img/google-plus.png');
 });
 
 ////////////////////////////////////////////////

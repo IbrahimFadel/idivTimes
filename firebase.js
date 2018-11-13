@@ -2,6 +2,7 @@ firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
     document.getElementById("loginDiv").style.display = "none";
     document.getElementById("logoutDiv").style.display = "initial";
+    //document.getElementById("signUpDiv").style.display = "none";
   } else {
     document.getElementById("logoutDiv").style.display = "none";
     document.getElementById("loginDiv").style.display = "initial";
@@ -11,8 +12,11 @@ firebase.auth().onAuthStateChanged(function(user) {
 function signUp() {
 	var email = document.getElementById("email_signUp").value;
 	var password = document.getElementById("password_signUp").value;
-
-	firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
+	document.getElementById("password_signUp").value = "";
+	firebase.auth().createUserWithEmailAndPassword(email, password).then(function() { 
+		window.location = "/";
+		console.log("test");
+	}).catch(function(error) {
 	  var errorCode = error.code;
 	  var errorMessage = error.message;
 	  window.alert("Error: " + errorCode + errorMessage);
@@ -47,6 +51,44 @@ function loginGoogle() {
 	  // The firebase.auth.AuthCredential type that was used.
 	  var credential = error.credential;
 	  // ...
+	});
+}
+
+function hasAccount() {
+	document.getElementById("signUpDiv").style.display = "none";	
+	document.getElementById("loginDiv").style.display = "initial";
+}
+
+function needsAccount() {
+	document.getElementById("signUpDiv").style.display = "initial";	
+	document.getElementById("loginDiv").style.display = "none";
+}
+
+function deleteAccount() {
+	var user = firebase.auth().currentUser;
+
+	swal({
+	  title: 'Are you sure?',
+	  text: "You won't be able to revert this!",
+	  type: 'warning',
+	  showCancelButton: true,
+	  confirmButtonColor: '#3085d6',
+	  cancelButtonColor: '#d33',
+	  confirmButtonText: 'Yes, delete it!'
+	}).then((result) => {
+	  if (result.value) {
+	    swal(
+	      'Deleted!',
+	      'Your file has been deleted.',
+	      'success'
+	    )
+	  }
+	})
+
+	user.delete().then(function() {
+	  window.alert("Your account has been deleted")
+	}).catch(function(error) {
+	  window.alert("Error deleting your account");
 	});
 }
 

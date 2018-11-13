@@ -34,33 +34,11 @@
 </nav>
 
 
-<h1 class="header">Contact us or let us contact you!</h1>
+<h1 class="header">Contact us!</h1>
 
 
 
-	<div class="contactForm">
-		<h5 class="smallHeader">Sign up to be emailed when we publish!</h5>
-		<a href="/login.html">
-			<h5 class="smallHeader" style="margin-top: -25px; font-size: 17px;">If you already have an account, log in here</h5>
-		</a>
-		
-		<p style="text-align: center;">
-		<small id="emailHelp" class="form-text text-muted">We'll never share any of your information with anybody.</small>	
-		</p>
-
-
-		<form style="width: 90%;">
-
-		<label for="exampleInputEmail1" style="margin-left: 15px;">Email address</label>
-		<input type="email" class="form-control" id="email_signUp" aria-describedby="emailHelp" name="email" style="margin-left: 15px;" placeholder="Enter email">
-
-
-		<label for="exampleInputPassword1" style="margin-left: 15px;">Password</label>
-		<input type="password" class="form-control" name="password" placeholder="Password" style="margin-left: 15px;" id="password_signUp">
-
-		<button type="button" value="Sign Up!" class="btn btn-primary" style="margin-left: 15px; margin-bottom: 15px;" onclick="signUp()">Sign Up</button>
-		</form>
-	</div>
+	
 
 	<div style="margin: auto; text-align: center;">
 		<div class="contactLinks">
@@ -92,6 +70,10 @@
 
 </div>
 
+
+<script src="sweetalert2.all.min.js"></script>
+<!-- Optional: include a polyfill for ES6 Promises for IE11 and Android browser -->
+<script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
 <script src="https://www.gstatic.com/firebasejs/5.5.8/firebase.js"></script>
 <script>
 	// Initialize Firebase
