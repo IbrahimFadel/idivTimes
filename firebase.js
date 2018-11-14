@@ -1,3 +1,6 @@
+//const swal = require('sweetalert2');
+//import swal from 'sweetalert2';
+
 firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
     document.getElementById("loginDiv").style.display = "none";
@@ -68,7 +71,7 @@ function deleteAccount() {
 	var user = firebase.auth().currentUser;
 
 	swal({
-	  title: 'Are you sure?',
+	  title: 'Are you sure you want to delete your account?',
 	  text: "You won't be able to revert this!",
 	  type: 'warning',
 	  showCancelButton: true,
@@ -77,19 +80,24 @@ function deleteAccount() {
 	  confirmButtonText: 'Yes, delete it!'
 	}).then((result) => {
 	  if (result.value) {
+	  	user.delete()
 	    swal(
 	      'Deleted!',
-	      'Your file has been deleted.',
+	      'Your account has been deleted.',
 	      'success'
 	    )
+	  } else {
+	  	swal(
+	  		'Your account has not been deleted.'
+  		)
 	  }
 	})
 
-	user.delete().then(function() {
-	  window.alert("Your account has been deleted")
+	/*user.delete().then(function() {
+		
 	}).catch(function(error) {
 	  window.alert("Error deleting your account");
-	});
+	});*/
 }
 
 function logout() {
