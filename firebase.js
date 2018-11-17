@@ -3,12 +3,19 @@
 
 firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
+    /*document.getElementById("loginDiv").style.display = "none";
+    document.getElementById("logoutDiv").style.display = "block";
+    document.getElementById("signUpDiv").style.display = "none";*/
     document.getElementById("loginDiv").style.display = "none";
-    document.getElementById("logoutDiv").style.display = "initial";
-    //document.getElementById("signUpDiv").style.display = "none";
+    document.getElementById("logoutDiv").style.display = "block";
+    document.getElementById("signUpDiv").style.display = "none";
   } else {
+    /*document.getElementById("logoutDiv").style.display = "none";
+    document.getElementById("loginDiv").style.display = "block";
+    document.getElementById("signUpDiv").style.display = "block";*/
+    document.getElementById("loginDiv").style.display = "block";
     document.getElementById("logoutDiv").style.display = "none";
-    document.getElementById("loginDiv").style.display = "initial";
+    document.getElementById("signUpDiv").style.display = "block";
   }
 });
 
@@ -57,15 +64,15 @@ function loginGoogle() {
 	});
 }
 
-function hasAccount() {
+/*function hasAccount() {
 	document.getElementById("signUpDiv").style.display = "none";	
-	document.getElementById("loginDiv").style.display = "initial";
+	document.getElementById("loginDiv").style.display = "block";
 }
 
 function needsAccount() {
-	document.getElementById("signUpDiv").style.display = "initial";	
+	document.getElementById("signUpDiv").style.display = "block";	
 	document.getElementById("loginDiv").style.display = "none";
-}
+}*/
 
 function deleteAccount() {
 	var user = firebase.auth().currentUser;
