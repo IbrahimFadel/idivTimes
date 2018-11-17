@@ -1,0 +1,242 @@
+@font-face {
+	font-family: NexaBold;
+	src: url(/fonts/NexaBold.otf);
+}
+
+@font-face {
+	font-family: NexaLight;
+	src: url(/fonts/NexaLight.otf);
+}
+
+.navbar {
+	position: fixed;
+	top: 0px;
+	width: 100%;
+	font-family: NexaBold;
+	z-index: 1;
+}
+
+.header {
+	font-family: NexaBold;
+	margin-top: 100px;
+	text-align: center;
+}
+
+.articleFrontPageText {
+	margin-top: 150px; 
+	margin-right: 250px;
+	font-family: NexaLight;
+}
+
+.articleP {
+	margin-left: 125px;
+	margin-top: 100px;
+	font-family: NexaLight;
+	text-align: center;
+	text-align: justify;
+	width: 1200px;
+}
+
+.articleImg {
+	float: left;
+	width: 20%;
+	display: block;
+	height: 285px;
+	padding-bottom: 25px;
+	margin-right: 50px;
+	border-radius: 3%;
+}
+
+.smallHeader {
+	font-family: NexaLight;
+	text-align: center;
+	padding-top: 30px;
+}
+
+.profilePicture {
+	border-radius: 50%;
+	height: 70%;
+	width: 70%;
+}
+
+.profileChildContainer {
+	display: inline-block;
+	font-family: NexaLight;
+	margin-top: 50px;
+	margin-left: 50px;
+}
+
+.profileParentContainer {
+	text-align: center;
+	background-color: #eaebed;
+	border-radius: 3%;
+	width: 90%;
+	margin: auto;
+	margin-top: 75px;
+}
+
+.emailLink {
+	color: #0057ED;
+	font-size: 17px;
+	font-family: NexaLight;
+	position: absolute;
+	top: 30%;
+	left: 50%;
+}
+
+.bottomBanner {
+	margin-bottom: 0px;
+	margin-top: 100px;
+	height: 100%;
+	width: 100%;
+	background-color: #eaebed;
+}
+
+.bannerHeader {
+	font-family: NexaLight;
+	text-align: center;
+}
+
+.bannerP {
+	font-family: NexaLight;
+	text-align: center;
+	padding-top: 25px;
+}
+
+.bannerImg {
+	width: 50px;
+	height: 50px;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.btn {
+	margin-top: 10px;
+}
+
+.btn .download {
+	margin-left: -50px;
+}
+
+.articlePdfContainer {
+	text-align: center;
+	margin: auto;
+	margin-top: 200px;
+	border-radius: 3%;
+	width: 85%;
+	height: 800px;
+}
+
+.articleHeaderContainer {
+	text-align: left;
+	text-align: justify;
+	margin-right: 0px;
+	padding-bottom: 25px;
+	border: groove;
+	border-radius: 8px;
+	display: block;
+	width: 65%;
+	position: relative;
+	left: 175px;
+	top: 100px;
+}
+
+.articleHeaderP {
+	font-family: NexaLight;
+	margin-left: 50px;
+	width: 90%;
+}
+
+.articleHeader {
+	margin-top: 50px;
+	margin-left: 50px;
+	font-family: NexaBold;
+	text-align: left;
+	display: inline-block;
+}
+
+.articleHeaderSmall {
+	margin-top: 10px;
+	margin-left: 50px;
+	font-family: NexaLight;
+	text-align: left;
+}
+
+.downloadArticleButton {
+	margin-left: 100px;
+}
+
+.contactLinks {
+	text-align: center;
+	background-color: #eaebed;
+	border-radius: 5%;
+	width: 15%;
+	height: 60px;
+	margin: auto;
+	margin-top: 20px;
+	margin-left: 10px;
+	display: inline-block;
+	position: relative;
+	top: 50%;
+}
+
+.contactForm {
+	background-color: #eaebed;
+	width: 25%;
+	margin: auto;
+	margin-top: 50px;
+}
+
+.contactFormContainer {
+	background-color: #eaebed;
+	margin: auto;
+	margin-bottom: 500px;
+	width: 25%;
+	padding-left: 10px;
+	padding-bottom: 10px;
+}
+
+.deleteAccount {
+	font-family: NexaLight;
+	text-align: center;
+	margin: auto;
+}
+
+.deleteAccount:hover {
+	cursor: pointer;
+}
+
+.googlePlus {
+	width: 20%;
+	border-radius: 15%;
+	float: left;
+	padding-top: 5px;
+}
+
+.googleDownloadDiv {
+	background-color: #E8481C;
+    width: 43%;
+    height: 10%;
+    margin-top: 10px;
+    border-radius: 3%;
+}
+
+.googleDownloadDiv:hover {
+	cursor: pointer;
+}
+
+#downloadBtn {
+	margin-left: -50px;
+}
+
+#logoutBtn {
+	margin-top: 10px;
+	margin-left: 37%;
+}
+
+
+
+
+
+
