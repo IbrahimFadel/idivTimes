@@ -63,6 +63,18 @@ app.get('/img/apostolosZezos.png', (req, res, next) => {
 	res.sendFile(__dirname + '/img/apostolosZezos.png');
 });
 
+app.get('/img/lucaAdamo.png', (req, res, next) => {
+	res.sendFile(__dirname + '/img/lucaAdamo.png');
+});
+
+app.get('/img/justinLee.png', (req, res, next) => {
+	res.sendFile(__dirname + '/img/justinLee.png');
+});
+
+app.get('/img/francescoRende.png', (req, res, next) => {
+	res.sendFile(__dirname + '/img/francescoRende.png');
+});
+
 app.get('/img/Article1.png', (req, res, next) => {
 	res.sendFile(__dirname + '/img/Article1.png');
 });
