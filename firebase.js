@@ -1,18 +1,9 @@
-//const swal = require('sweetalert2');
-//import swal from 'sweetalert2';
-
 firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
-    /*document.getElementById("loginDiv").style.display = "none";
-    document.getElementById("logoutDiv").style.display = "block";
-    document.getElementById("signUpDiv").style.display = "none";*/
     document.getElementById("loginDiv").style.display = "none";
     document.getElementById("logoutDiv").style.display = "block";
     document.getElementById("signUpDiv").style.display = "none";
   } else {
-    /*document.getElementById("logoutDiv").style.display = "none";
-    document.getElementById("loginDiv").style.display = "block";
-    document.getElementById("signUpDiv").style.display = "block";*/
     document.getElementById("loginDiv").style.display = "block";
     document.getElementById("logoutDiv").style.display = "none";
     document.getElementById("signUpDiv").style.display = "block";
@@ -64,16 +55,6 @@ function loginGoogle() {
 	});
 }
 
-/*function hasAccount() {
-	document.getElementById("signUpDiv").style.display = "none";	
-	document.getElementById("loginDiv").style.display = "block";
-}
-
-function needsAccount() {
-	document.getElementById("signUpDiv").style.display = "block";	
-	document.getElementById("loginDiv").style.display = "none";
-}*/
-
 function deleteAccount() {
 	var user = firebase.auth().currentUser;
 
@@ -99,12 +80,6 @@ function deleteAccount() {
   		)
 	  }
 	})
-
-	/*user.delete().then(function() {
-		
-	}).catch(function(error) {
-	  window.alert("Error deleting your account");
-	});*/
 }
 
 function logout() {
