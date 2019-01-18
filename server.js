@@ -58,6 +58,10 @@ app.get('/articlesHtml/Article3.html', (req, res, next) => {
 	res.sendFile(__dirname + '/articlesHtml/Article3.html');
 })
 
+app.get('/articlesHtml/aDay.html', (req, res, next) => {
+	res.sendFile(__dirname + '/articlesHtml/aDay.html');
+})
+
 //////////////////////////////////////////////
 
 app.get('/img/no-profile.png', (req, res, next) => {
@@ -112,6 +116,10 @@ app.get('/img/article2.pdf', (req, res, next) => {
 
 app.get('/img/article3.pdf', (req, res, next) => {
 	res.sendFile(__dirname + '/img/article3.pdf');
+});
+
+app.get('/img/articles/aDay.pdf', (req, res, next) => {
+	res.sendFile(__dirname + '/img/articles/aDay.pdf');
 });
 
 app.get('/fonts/NexaBold.otf', (req, res, next) => {
