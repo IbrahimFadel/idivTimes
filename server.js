@@ -62,6 +62,10 @@ app.get('/articlesHtml/aDay.html', (req, res, next) => {
 	res.sendFile(__dirname + '/articlesHtml/aDay.html');
 })
 
+app.get('/articlesHtml/year8.html', (req, res, next) => {
+	res.sendFile(__dirname + '/articlesHtml/year8.html');
+})
+
 //////////////////////////////////////////////
 
 app.get('/img/no-profile.png', (req, res, next) => {
